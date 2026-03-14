@@ -47,7 +47,9 @@ class AuthController extends Controller
         ], 'User created succesfully');
     }
 
-    public function logout() {
-        return response()->json('this is logout method');
+    public function logout(Request $request) {
+        $request->user()->currentAccessToken()->delete();
+
+        return $this->success('', 'Logged out successfully');
     }
 }
