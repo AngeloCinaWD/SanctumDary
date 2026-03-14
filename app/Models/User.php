@@ -39,6 +39,11 @@ class User extends Authenticatable
      *
      * @return array<string, string>
      */
+    public function preference()
+    {
+        return $this->hasOne(UserPreference::class);
+    }
+
     protected function casts(): array
     {
         return [
